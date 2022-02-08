@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Todo List app</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body >
+  <div class="header"></div>
+  <div class="main">
+    <div class="todo-app">
+      <!-- todo eader -->
+      <div class="todo-header">
+        <h1>TODO</h1>
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" id="theme-toggle"><path fill="#FFF" fill-rule="evenodd" d="M13 0c.81 0 1.603.074 2.373.216C10.593 1.199 7 5.43 7 10.5 7 16.299 11.701 21 17.5 21c2.996 0 5.7-1.255 7.613-3.268C23.22 22.572 18.51 26 13 26 5.82 26 0 20.18 0 13S5.82 0 13 0z"/></svg>
+      </div>
+      <!-- input todo -->
+      <div class="input-el">
+        <div class="check">
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>
+        </div>
+        <form id="formEl">
+          <input type="text" id="todo-input" placeholder="Create a new todo...">
+        </form>
+      </div>
+     <!-- main-todos -->
+        <div class="todos">
+          <ul id="todos-conatiner">
+           <li class="todo">
+             <div class="todo-text center">No todo to display</div>
+           </li>
+  
+          </ul>
+          <div class="last-tab">
+            <p><span id="no-items">0</span> items left</p>
+            <div class="filters">
+              <ul>
+                <li><button class="btn-filter btn-all active">All</button></li>
+                <li><button class="btn-filter btn-active">Active</button></li>
+                <li><button class="btn-filter btn-completed">Completed</button></li>
+              </ul>
+            </div>
+            <p id="clear-completed">Clear completed</p>
+          </div>
+
+        </div>
+      <!-- only on mobile -->
+        <div class="filters-mobile">
+          <ul>
+            <li><button class="btn-filter btn-all active">All</button></li>
+            <li><button class="btn-filter btn-active">Active</button></li>
+            <li><button class="btn-filter btn-completed">Completed</button></li>
+          </ul>
+        </div>
+    </div>
+
+  </div>
+
+
+  <script src="app.js"></script>
+</body>
+</html>
