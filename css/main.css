@@ -197,6 +197,13 @@ p, a {
   display: none;
 }
 
+.end {
+  padding: 1em;
+  text-align: center;
+  font-size: 0.8em;
+  color: #393a4c;
+}
+
 @media screen and (max-width: 475px) {
   .last-tab .filters {
     justify-content: space-between;

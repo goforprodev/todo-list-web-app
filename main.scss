@@ -271,6 +271,13 @@ p,a{
     display: none;
 }
 
+.end{
+    padding: 1em;
+    text-align:center;
+    font-size: .8em;
+    color: $very-dark-grayish-blue;
+}
+//mobile reaponsiveness
 @media screen and (max-width:475px) {
    .last-tab{
        .filters{
