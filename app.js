@@ -40,8 +40,9 @@ document.addEventListener('DOMContentLoaded',() => {
                 let todoInput = "";
                 todos.length > 0?  todos.forEach((todo) => {
                     const isCompleted = todo.completed ? 'strike' : '';
+                    const isCheck = todo.completed ? 'complete' : '';
                     todoInput += `<li class="todo" data-key=${todo.id}>
-                    <div class="check">
+                    <div class="check ${isCheck}">
                     <svg data-id = ${todo.id} xmlns="http://www.w3.org/2000/svg"width="11" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>
                     </div>
                     <div class="todo-text ${isCompleted}">${todo.text}</div>
@@ -59,10 +60,11 @@ document.addEventListener('DOMContentLoaded',() => {
               
             }
         
-            function generateHTML({id,text,completed}){
+            function generateHTML({id,text ,completed}){
                 const isCompleted = completed ? 'strike' : '';
+                const isCheck = completed ? 'complete' : '';
                 return `<li class="todo" data-key=${id}>
-                <div class="check">
+                <div class="check ${isCheck}">
                 <svg data-id = ${id} xmlns="http://www.w3.org/2000/svg"width="11" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>
                 </div>
                 <div class="todo-text ${isCompleted}">${text}</div>
@@ -87,8 +89,6 @@ document.addEventListener('DOMContentLoaded',() => {
                     todoId = e.target.dataset.id
                     deleteTodo(todoId)
                 }else if(e.target.classList.contains("check")){
-                    e.target.className += " colorize-light"
-                    console.log(e.target.className)
                     const itemKey = e.target.parentElement.dataset.key
                     // find index
                     const index = todos.findIndex(todo => todo.id == Number(itemKey))
@@ -157,14 +157,6 @@ document.addEventListener('DOMContentLoaded',() => {
             storeTasks();   
             displayTodo()
         
-        function changeTheme(){
-            const themeToggleBtn = document.querySelector("#theme-toggle");
 
-            themeToggleBtn.addEventListener("click",() => {
-                console.log("dark")
-            })
-        }
-
-        changeTheme()
 })
 

@@ -14,24 +14,24 @@ $check-background:linear-gradient(hsl(192, 100%, 67%) ,hsl(280, 87%, 65%));
 // $very-dark-grayish-blue:hsl(237, 14%, 26%);
 
 // html{
-    $bg:url('../images/bg-desktop-light.jpg');
+    $bg:url('../images/bg-desktop-dark.jpg');
     $font:'Josefin Sans', sans-serif;
-    $very-light-gray:hsl(0, 0%, 98%);
-    $very-light-grayish-blue:hsl(236, 33%, 92%);
-    $light-grayish-blue:hsl(233, 11%, 84%);
-    $dark-grayish-blue:hsl(236, 9%, 61%);
-    $very-dark-grayish-blue:hsl(235, 19%, 35%);
+    //$very-light-gray:hsl(0, 0%, 98%);
+    //$very-light-grayish-blue:hsl(236, 33%, 92%);
+    //$light-grayish-blue:hsl(233, 11%, 84%);
+    //$dark-grayish-blue:hsl(236, 9%, 61%);
+    //$very-dark-grayish-blue:hsl(235, 19%, 35%)
 // }
 
-// html[data-theme="dark"]{
-    // $bg:url('../images/bg-desktop-dark.jpg');
-    // $font:'Josefin Sans',sans-serif;
-    // $very-light-gray:hsl(235, 21%, 11%);
-    // $very-light-grayish-blue:hsl(235, 24%, 19%);
-    // $light-grayish-blue:hsl(234, 39%, 85%);
-    // $dark-grayish-blue:hsl(233, 14%, 35%);
-    // $very-dark-grayish-blue:hsl(237, 14%, 26%);
-// }
+
+     //$bg:url('../images/bg-desktop-dark.jpg');
+     //$font:'Josefin Sans',sans-serif;
+     $very-light-gray:hsl(235, 21%, 11%);
+     $very-light-grayish-blue:hsl(235, 24%, 19%);
+     $light-grayish-blue:hsl(234, 39%, 85%);
+     $dark-grayish-blue:hsl(233, 14%, 35%);
+     $very-dark-grayish-blue:hsl(237, 14%, 26%);
+
 
 *,*::after,*::before{
     margin: 0;
@@ -44,7 +44,7 @@ body{
     font-size: 18px;
     height:100vh;
     background:$very-light-gray;
-    color: $very-dark-grayish-blue;
+    color: $light-grayish-blue;
     font-family: $font;
 }
 h1,p,span,button,a,li{
@@ -58,15 +58,6 @@ p,a{
     font-size: .9rem;
 }
 // mixins
-@mixin card(){
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    column-gap: 1.3rem;
-    background: $very-light-gray;
-    padding:1.3rem 1.3rem;   
-    border-radius: 5px;
-}
 @mixin center {
     display: flex;
     justify-content: center;
@@ -76,11 +67,18 @@ p,a{
     display:grid;
     place-items: center;
 }
+@mixin card(){
+   @include center();
+    column-gap: 1.5rem;
+    background: $very-light-grayish-blue;
+    padding:1.3rem 1.3rem;   
+    border-radius: 5px;
+}
 @mixin state{
     button{
+        background:none;
         apperance:none;
         border:none;
-        background:none;
         font-family:$font;
         color:$dark-grayish-blue;
         font-weight: 700;
@@ -89,9 +87,12 @@ p,a{
             color:$bright-blue;
         }
         &:hover{
-            color:$very-dark-grayish-blue
+            color:$light-grayish-blue
         }
     }
+}
+@mixin boxshadow{
+    box-shadow: 0px 30px 30px $very-light-gray;
 }
 // mixins
 .header{
@@ -107,6 +108,7 @@ p,a{
     top:15%;
     left: 50%;
     transform: translate(-50%,-15%);
+    margin-top: 2rem;
     padding: .5rem;
 
     .todo-header{
@@ -117,8 +119,8 @@ p,a{
 
         h1{
             font-weight: 700;
-            font-size: 2.5rem;
-            letter-spacing: 15px;
+            font-size: 2.3rem;
+            letter-spacing: 12px;
             color: #fff;
         }
         #theme-toggle{
@@ -128,6 +130,7 @@ p,a{
     .input-el{
         margin-top: 2rem;   
         @include card();
+        box-shadow: 0 10px 30px $very-light-grayish-blue;
         form{
             flex: 1;
 
@@ -138,24 +141,25 @@ p,a{
                 font-size: 18px;
                 height: inherit;
                 background: none;
+                color:$light-grayish-blue;
             }
         }
     }
     .todos{
         list-style:none;
         margin-top: 1.5rem;
-        border-radius: 5px;
+        //border-radius: 5px;
+        border:none;
         overflow: hidden;
-        background: $very-light-gray;
-        box-shadow: 0px 20px 30px $very-light-grayish-blue;
-      &>ul{
+        background: $very-light-grayish-blue;
+        @include boxshadow();
+        &> ul{
             // max-height: 200px;
             // overflow-y:scroll;
         }
         .todo{
             @include card();
-            border-bottom: .3px solid $light-grayish-blue;
-            
+            border-bottom: .2px solid $very-dark-grayish-blue;
     
             .todo-text{
                 flex: 1;
@@ -163,7 +167,7 @@ p,a{
                     text-align: center;
                 }
                 &.strike{
-                    color:$dark-grayish-blue;
+                    color:$light-grayish-blue;
                     text-decoration: line-through;
                     opacity: 0.5;
                 }
@@ -171,7 +175,7 @@ p,a{
             .cross>svg{
                 display: none;
                 &:hover>path{
-                   fill: hsl(280, 87%, 65%);
+                    fill:$light-grayish-blue;
                 }
             }
             &:hover > .cross>svg{
@@ -199,7 +203,7 @@ p,a{
             #clear-completed{
                 &:hover{
                     cursor: pointer;
-                    color: $very-dark-grayish-blue;
+                    color: $light-grayish-blue;
                 }
             }
         }
@@ -210,7 +214,7 @@ p,a{
 
 
 .check{
-    border:.5px solid $light-grayish-blue;
+    border:.5px solid $dark-grayish-blue;
     border-radius: 100%;
     width: 20px;
     height: 20px;
@@ -220,9 +224,20 @@ p,a{
     cursor: pointer;
     position: relative;
     z-index:1000;
+    svg{
+        display: none;
+    }
 
-    &:focus>svg{
-        background:  red;
+    &.first-check{
+        svg{
+            display: none;
+        }
+    }
+    &.complete{
+        background:$check-background;
+        svg{
+            display: block;
+        }
     }
     // &::before,&::after{
     //     content:'';
@@ -258,18 +273,19 @@ p,a{
 
 @media screen and (max-width:475px) {
    .last-tab{
-       justify-content: space-between;
        .filters{
+          justify-content: space-between;
            display: none;
        }
    }
-   .filters-mobile{
-       display: block;
-       margin-top: 1rem;
-       column-gap: 1rem;
-       background: $very-light-gray;
-       padding:1rem .9rem;
-       border-radius: 5px;
+    .filters-mobile{
+        @include boxshadow();
+        display: block;
+           margin-top: 1rem;
+           column-gap: 1rem;
+           background: $very-light-grayish-blue;
+           padding:1rem .9rem;
+           border-radius: 5px;
        ul{
            margin: 0 auto;
            list-style: none;
@@ -280,6 +296,10 @@ p,a{
            }
        }
    }
+    .todo-app .todo-header h1{
+        font-size:2rem;
+        letter-spacing:10px;
+    }
 }
 
 // extra classes
