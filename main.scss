@@ -70,6 +70,7 @@ p,a{
 @mixin card(){
    @include center();
     column-gap: 1.5rem;
+    justify-content: space-between;
     background: $very-light-grayish-blue;
     padding:1.3rem 1.3rem;   
     border-radius: 5px;
@@ -133,7 +134,6 @@ p,a{
         box-shadow: 0 10px 30px $very-light-grayish-blue;
         form{
             flex: 1;
-
             input[type='text']{
                 font-family: 'Josefin Sans', sans-serif;
                 border: none;

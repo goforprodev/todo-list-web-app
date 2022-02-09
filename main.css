@@ -65,6 +65,7 @@ p, a {
   justify-content: center;
   align-items: center;
   column-gap: 1.5rem;
+  justify-content: space-between;
   background: #25273c;
   padding: 1.3rem 1.3rem;
   border-radius: 5px;
@@ -95,6 +96,7 @@ p, a {
   justify-content: center;
   align-items: center;
   column-gap: 1.5rem;
+  justify-content: space-between;
   background: #25273c;
   padding: 1.3rem 1.3rem;
   border-radius: 5px;
@@ -126,6 +128,7 @@ p, a {
   justify-content: center;
   align-items: center;
   column-gap: 1.5rem;
+  justify-content: space-between;
   background: #25273c;
   padding: 1.3rem 1.3rem;
   border-radius: 5px;
